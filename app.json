@@ -1,11 +1,14 @@
 {
   "pages": [
-    "pages/login/login"
+    "pages/home/home",
+    "pages/profile/profile",
+    "pages/login/login",
+    "pages/agreement/agreement"
   ],
-  "window": { 
+  "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "豆瓣评分",
     "navigationBarTextStyle": "black"
   },
   "style": "v2",

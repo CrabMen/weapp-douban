@@ -1,13 +1,20 @@
 // pages/login/login.js
 Page({
-  wechatLogin () {
+  wechatLogin() {
 
   },
-  doubanLogin () {
+  doubanLogin() {
 
   },
-  openAgreement: function(){
+  openAgreement () {
+    wx.navigateTo({
+      url: '/pages/agreement/agreement',
+      success: (result) => {
 
+      },
+      fail: () => { },
+      complete: () => { }
+    });
 
   }
 })
