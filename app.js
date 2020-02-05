@@ -1,6 +1,41 @@
 //app.js
 App({
   onLaunch: function () {
+    //微信toast封装
+    wx.cm = {}
+    let commonToast = (title, type, druction=1500) => {
+      let options = {
+        title: title,
+        duration: druction,
+        mask: false,
+        icon :'none'
+      }
+
+      if (type == 1) { 
+        options.icon = 'success'
+      } else if (type == 2) {
+        options.image = '/assets/imgs/upsdk_cancel_normal.png'
+      }
+      wx.showToast(options);
+    }
+
+    wx.cm.toast = (title, type, druction) => {
+      commonToast(title, 0, druction)
+    }
+
+    wx.cm.toastSuccess = (title, druction) => {
+      commonToast(title, 1, druction)
+    }
+
+    wx.cm.toastError = (title, druction) => {
+      commonToast(title, 2, druction)
+    }
+
+
+
+
+
+
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
