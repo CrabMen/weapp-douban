@@ -3,15 +3,22 @@ App({
   onLaunch: function () {
     //微信toast封装
     wx.cm = {}
-    let commonToast = (title, type, druction=1500) => {
+    wx.cm.url = (url)=>{
+      return `https://douban-api.uieee.com/${url}`
+    }
+    this.initToast()
+  },
+
+  initToast() {
+    let commonToast = (title, type, druction = 1500) => {
       let options = {
         title: title,
         duration: druction,
         mask: false,
-        icon :'none'
+        icon: 'none'
       }
 
-      if (type == 1) { 
+      if (type == 1) {
         options.icon = 'success'
       } else if (type == 2) {
         options.image = '/assets/imgs/upsdk_cancel_normal.png'
@@ -29,7 +36,9 @@ App({
 
     wx.cm.toastError = (title, druction) => {
       commonToast(title, 2, druction)
+
     }
+
 
 
 
