@@ -42,19 +42,19 @@ Page({
 
     this.loadLocalData()
 
-    this.loadCity(city => {
-      this.loadNewData(0, { city: city })
-    })
-    this.loadNewData(1)
-    this.loadNewData(2)
-    this.loadNewData(3)
-    this.loadNewData(4)
+    // this.loadCity(city => {
+    //   this.loadNewData(0, { city: city })
+    // })
+    // this.loadNewData(1)
+    // this.loadNewData(2)
+    // this.loadNewData(3)
+    // this.loadNewData(4)
   },
 
   loadLocalData() {
     for (let index = 0; index < this.data.allMovies.length; index++) {
       let obj = this.data.allMovies[index]
-      obj.movies = wx.getStorageSync(obj.title) || [];
+      obj.movies = wx.getStorageSync(obj.title);
     }
     this.setData(this.data)
   },
@@ -70,6 +70,7 @@ Page({
         console.log(result)
         let obj = this.data.allMovies[idx]
         const movies = result.data.subjects
+        obj.movies = []
         for (let index = 0; index < movies.length; index++) {
           let movie = movies[index].subject || movies[index]
           this.updateMovies(movie)
@@ -77,7 +78,8 @@ Page({
         }
         this.setData(this.data)
         //将movies数组保存到本地
-        wx.setStorage({
+      
+        wx.setStorages({
           key: obj.title,
           data: obj.movies,
         });

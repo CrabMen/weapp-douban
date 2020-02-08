@@ -8,7 +8,7 @@
         </view>
     </view>
     <view class="main">
-        <view class="row" wx:for="{{ allMovies }}"  wx:key="unique">
+        <view class="row" wx:for="{{ allMovies }}" wx:key="unique">
             <view class="title-wrapper">
                 <view class="title">{{item.title}}</view>
                 <view class="more" data-index='{{ index }}' bind:tap="viewMore">
@@ -17,23 +17,7 @@
                 </view>
             </view>
             <scroll-view scroll-x="{{true}}" class="items">
-                <view wx:for="{{ item.movies }}" wx:key="unique" class="item" wx:for-item="movie">
-                    <image class="photo" src="{{movie.images.large}}" />
-                    <view class="title">{{movie.title}}</view>
-                    <view class="score">
-                        <view class="stars">
-                            <!-- <block wx:for="{{ movie.stars }}" wx:key="unique" wx:for-item="star">
-                            <image wx:if="{{ star == 1}}" class="star" src="/assets/imgs/rating_star_small_on.png" />
-                            <image wx:if="{{ star == 0.5}}" class="star" src="/assets/imgs/rating_star_small_half.png" />
-                            <image wx:if="{{ star == 0}}" class="star" src="/assets/imgs/rating_star_small_off.png" />
-                        </block> -->
-                            <image wx:for="{{ movie.stars.on}}" wx:key="unique" class="star" src="/assets/imgs/rating_star_small_on.png" />
-                            <image wx:if="{{ movie.stars.half}}" wx:key="unique" class="star" src="/assets/imgs/rating_star_small_half.png" />
-                            <image wx:for="{{ movie.stars.off}}" wx:key="unique" class="star" src="/assets/imgs/rating_star_small_off.png" />
-                        </view>
-                        {{movie.stars ?  movie.rating.average : '暂无评分'}}
-                    </view>
-                </view>
+                <movie-item class="item" movie='{{movie}}' wx:for="{{item.movies}}" wx:key="unique" wx:for-item="movie"></movie-item>
             </scroll-view>
         </view>
     </view>

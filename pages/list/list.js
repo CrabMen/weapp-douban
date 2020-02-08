@@ -12,7 +12,9 @@ Page({
     wx.getStorage({
       key: options.title,
       success: (result) => {
-        this.setData(result.movies)
+        console.log(result)
+        this.data.movies = result.data
+        this.setData(this.data)
       },
     });
   },

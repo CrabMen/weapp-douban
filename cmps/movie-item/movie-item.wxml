@@ -1,0 +1,14 @@
+<!-- cmps/movie-item/movie-item.wxml -->
+<!-- <text>cmps/movie-item/movie-item.wxml</text> -->
+<view class="item" wx:for-item="movie">
+    <image class="photo" src="{{movie.images.large}}" />
+    <view class="title">{{movie.title}}</view>
+    <view class="score">
+        <view class="stars">
+            <image wx:for="{{ movie.stars.on}}" wx:key="unique" class="star" src="/assets/imgs/rating_star_small_on.png" />
+            <image wx:if="{{ movie.stars.half}}" wx:key="unique" class="star" src="/assets/imgs/rating_star_small_half.png" />
+            <image wx:for="{{ movie.stars.off}}" wx:key="unique" class="star" src="/assets/imgs/rating_star_small_off.png" />
+        </view>
+        {{movie.stars ?  movie.rating.average : '暂无评分'}}
+    </view>
+</view>
