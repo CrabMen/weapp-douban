@@ -49,6 +49,15 @@ Page({
     // this.loadNewData(2)
     // this.loadNewData(3)
     // this.loadNewData(4)
+
+    wx.setNavigationBarColor({
+      frontColor: '#ffffff',
+      backgroundColor: '#42bd55',
+      animation: {
+        duration: 0,
+        timingFunc: 'linear'
+      },
+    });
   },
 
   loadLocalData() {
