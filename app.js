@@ -3,10 +3,20 @@ App({
   onLaunch: function () {
     //微信toast封装
     wx.cm = {}
-    wx.cm.url = (url)=>{
+    wx.cm.url = (url) => {
       return `https://douban-api.uieee.com/${url}`
     }
     this.initToast()
+
+    const info = wx.getSystemInfoSync();
+    wx.cm.statusBarHeight = info.statusBarHeight
+    if (info.platform == 'android') {
+      wx.cm.navBarHeight = 48
+    } else {
+      wx.cm.navBarHeight = 44
+    }
+
+
   },
 
   initToast() {

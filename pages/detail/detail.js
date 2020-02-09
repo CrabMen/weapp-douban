@@ -5,17 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   const movie =  JSON.parse(options.movie)
-   wx.setNavigationBarTitle({
-     title: movie.title,
-   });
+    const movie = JSON.parse(options.movie);
+    this.setData({title:movie.title})
   },
 
   /**

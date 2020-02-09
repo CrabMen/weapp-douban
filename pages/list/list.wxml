@@ -1,5 +1,7 @@
 <!-- pages/list/list.wxml -->
 <!-- <text>pages/list/list.wxml</text> -->
+<nav-bar bind:backTap='backTap' bind:homeTap='homeTap' title='{{title}}' back='true' home='true'></nav-bar>
+
 <view class="container">
     <view class="item" wx:for="{{movies}}" wx:key="unique" wx:for-item="movie">
         <movie-item movie='{{movie}}'/>

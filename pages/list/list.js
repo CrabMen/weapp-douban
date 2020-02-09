@@ -2,13 +2,12 @@
 Page({
 
   data: {
-    movies: []
+    movies: [],
+    title: ''
   },
 
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: options.title,
-    });
+    this.setData({ title: options.title })
     wx.getStorage({
       key: options.title,
       success: (result) => {
@@ -19,5 +18,12 @@ Page({
     });
   },
 
+  backTap: function (evt){
+   console.log('返会的回调以及参数',evt.detail)
+  },
+
+  homeTap() {
+    console.log('home点击的回调以及参数',evt.detail)
+  }
 
 })

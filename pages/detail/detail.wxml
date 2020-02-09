@@ -1,2 +1,4 @@
 <!--pages/detail/detail.wxml-->
+<nav-bar title='{{title}}' back='true' home='true'></nav-bar>
+
 <text>pages/detail/detail.wxml</text>
